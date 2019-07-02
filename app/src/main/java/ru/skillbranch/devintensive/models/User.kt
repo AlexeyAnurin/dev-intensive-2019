@@ -8,7 +8,7 @@ data class User(
     var firstName: String?,
     var lastName: String?,
     var avatar: String?,
-    var raiting: Int = 0,
+    var rating: Int = 0,
     var respect: Int = 0,
     val lastVisit: Date? = Date(),
     val isOnline: Boolean = false
@@ -39,7 +39,7 @@ data class User(
             //   val firstName = parts?.getOrNull(0)
             //   val lastName = parts?.getOrNull(1)
 
-            val (firstName, lastName) = Utils.parseFullname(fullName)
+            val (firstName, lastName) = Utils.parseFullName(fullName)
 
             return User(id = "$lastId", firstName = firstName, lastName = lastName )
         }
