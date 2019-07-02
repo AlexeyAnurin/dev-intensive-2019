@@ -26,3 +26,4 @@ fun Date.format(pattern: String="HH.mm.ss.yy"): String{
 this.time=time
         return this
     }
+}
