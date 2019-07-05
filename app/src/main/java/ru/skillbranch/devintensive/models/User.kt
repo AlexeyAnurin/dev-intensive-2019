@@ -58,6 +58,9 @@ data class User(
         }
     }
 
+
+
+
     class Builder {
         private var id: String? = null
         private var firstName: String? = null
@@ -69,6 +72,9 @@ data class User(
         private var isOnline: Boolean = false
 
         fun id(id: String) = apply { this.id = id }
+
+
+
         fun firstName(firstName: String?) = apply { this.firstName = firstName }
         fun lastName(lastName: String?) = apply { this.lastName = lastName }
         fun avatar(avatar: String?) = apply { this.avatar = avatar }
