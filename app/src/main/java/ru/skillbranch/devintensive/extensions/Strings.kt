@@ -36,3 +36,4 @@ fun String.stripHtml() : String{
     var removedHtmlEscape = """(&amp;|&lt;|&gt;|&#39;|&quot;)""".toRegex().replace(removedHtml, "") //&amp;|&lt;|&gt;|&#39;|&quot;
     return  "\\s\\s+".toRegex().replace(removedHtmlEscape, " ")
 }
+
