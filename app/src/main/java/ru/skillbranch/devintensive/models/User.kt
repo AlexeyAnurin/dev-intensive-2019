@@ -35,11 +35,14 @@ data class User(
         fun makeUser(fullName: String?): User {
             lastId++
 
-            //   val parts :List<String>? =fullName?.split(" ")
-            //   val firstName = parts?.getOrNull(0)
-            //   val lastName = parts?.getOrNull(1)
-
             val (firstName, lastName) = Utils.parseFullName(fullName)
+
+            var a: String? = Utils.toInitials(firstName, lastName)
+
+           /*    val parts :List<String>? =fullName?.split(" ")
+               val firstName = parts?.getOrNull(0)
+               val lastName = parts?.getOrNull(1)
+            */
 
             return User(id = "$lastId", firstName = firstName, lastName = lastName)
         }
@@ -57,9 +60,6 @@ data class User(
             return User("$lastId", firstName, lastName, avatar, rating, respect, lastVisit, isOnline)
         }
     }
-
-
-
 
     class Builder {
         private var id: String? = null

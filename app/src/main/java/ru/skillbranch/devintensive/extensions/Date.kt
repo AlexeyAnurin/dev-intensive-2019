@@ -50,6 +50,18 @@ fun Date.add(value: Int, timeUnit: TimeUnits = TimeUnits.SECOND): Date = this.ap
     }
 }
 
+/*fun fjghfjk(){
+    var longTime = Date().time //getter
+    Date().time = 1000L //setter
+
+    Date().apply {
+        var longTime =time
+        time = 1000L
+
+        time += longTime
+    }
+}*/
+
 fun Date.humanizeDiff(otherDate: Date = Date()): String {
     val isPast = time < otherDate.time
     val diff = abs(time - otherDate.time)
