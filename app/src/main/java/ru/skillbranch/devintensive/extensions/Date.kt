@@ -1,6 +1,6 @@
 package ru.skillbranch.devintensive.extensions
 
-import android.util.Log
+
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
@@ -29,7 +29,6 @@ fun TimeUnits.plural(value: Int): String {
 fun String.toDate(pattern: String = "HH:mm:ss dd.MM.yy"): Date? = try {
     SimpleDateFormat(pattern, Locale("ru", "RU")).parse(this)
 } catch (e: ParseException) {
-    Log.e("DEV", "${javaClass.simpleName} toDate: $e")
     null
 }
 
