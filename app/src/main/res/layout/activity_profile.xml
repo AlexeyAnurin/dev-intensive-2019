@@ -21,7 +21,8 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            >
 
             <ImageButton
                 android:layout_width="@dimen/btn_round_size_40"
@@ -54,11 +55,11 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/iv_avatar"
                 android:layout_centerHorizontal="true"
-                tools:text="John Doe"
+                android:layout_marginTop="@dimen/spacing_normal_16"
+                android:fontFamily="sans-serif-medium"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/font_large_24"
-                android:fontFamily="sans-serif-medium"
-                />
+                tools:text="John Doe" />
 
             <TextView
                 android:id="@+id/tv_rank"
