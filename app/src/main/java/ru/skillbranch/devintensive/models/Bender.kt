@@ -20,9 +20,9 @@ class Bender(var status: Status = Status.NORMAL, var question: Question = Questi
                 question = question.nextQuestion()
                 "Отлично - ты справился\n${question.question}" to status.color
             } else {
-                counter = counter + 1
+                counter += 1
                 status = status.nextStatus()
-                "Это не правильный ответ\n${question.question}" to status.color
+                "Это неправильный ответ\n${question.question}" to status.color
 
                 if (counter >= 4) {
                     question = Question.NAME
@@ -52,7 +52,7 @@ class Bender(var status: Status = Status.NORMAL, var question: Question = Questi
         NORMAL(Triple(255, 255, 255)),
         WARNING(Triple(255, 120, 0)),
         DANGER(Triple(255, 60, 60)),
-        CRITICAL(Triple(255, 255, 0));
+        CRITICAL(Triple(255, 0, 0));
 
         fun nextStatus(): Status {
             return if (this.ordinal < values().lastIndex) {
@@ -85,7 +85,7 @@ class Bender(var status: Status = Status.NORMAL, var question: Question = Questi
         },
         MATERIAL(
                 "Из чего я сделан?",
-                listOf("metal", "wood", "iron", "дерево", "металл"),
+                listOf("металл", "дерево", "metal", "iron", "wood"),
                 "\\d+".toRegex(),
                 "Материал не должен содержать цифр"
         ) {
