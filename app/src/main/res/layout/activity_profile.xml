@@ -23,8 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginBottom="@dimen/spacing_normal_16"
-            >
+            android:layout_marginBottom="@dimen/spacing_normal_16">
 
             <ImageButton
                 android:layout_width="@dimen/btn_round_size_40"
@@ -59,9 +58,9 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/spacing_normal_16"
                 android:fontFamily="sans-serif-medium"
+                android:text="John Doe"
                 android:textColor="@android:color/white"
-                android:textSize="@dimen/font_large_24"
-                android:text="John Doe" />
+                android:textSize="@dimen/font_large_24" />
 
             <TextView
                 android:id="@+id/tv_rank"
@@ -72,34 +71,66 @@
                 android:text="Junior Android Developer"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/font_normal_16"
-
-
                 />
         </RelativeLayout>
 
     </FrameLayout>
-    
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@color/color_gray_light">
+        android:background="@color/color_gray_light"
+        android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-
-            >
+            android:orientation="vertical"
+            android:gravity="center"
+            android:paddingTop="@dimen/spacing_normal_16"
+            android:paddingBottom="@dimen/spacing_normal_16">
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/font_large_20"
+                android:text="0"
+                android:fontFamily="sans-serif-medium" />
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/font_normal_16"
+                android:text="Рейтинг"/>
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:paddingTop="@dimen/spacing_normal_16"
+            android:paddingBottom="@dimen/spacing_normal_16">
 
-            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/font_large_20"
+                android:text="0"
+                android:fontFamily="sans-serif-medium"/>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/font_normal_16"
+                android:text="Уважение"/>
         </LinearLayout>
 
     </LinearLayout>
