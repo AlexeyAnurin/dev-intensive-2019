@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">Dev-intensive</string>
+    <string name="app_name">Chat Dev-intensive</string>
 </resources>
+
+<!--<resources>
+    <string name="app_name">Dev-intensive</string>
+</resources>-->
