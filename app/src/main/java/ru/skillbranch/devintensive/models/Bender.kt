@@ -22,7 +22,6 @@ class Bender(var status: Status = Status.NORMAL, var question: Question = Questi
             } else {
                 counter += 1
                 status = status.nextStatus()
-                "Это неправильный ответ\n${question.question}" to status.color
 
                 if (counter >= 4) {
                     question = Question.NAME
