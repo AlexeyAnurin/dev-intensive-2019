@@ -3,6 +3,8 @@ package ru.skillbranch.devintensive.models
 
 class Bender(var status: Status = Status.NORMAL, var question: Question = Question.NAME) {
 
+    var counter: Int = 0
+
     fun askQuestion(): String = when (question) {
         Question.NAME -> Question.NAME.question
         Question.PROFESSION -> Question.PROFESSION.question
@@ -18,8 +20,17 @@ class Bender(var status: Status = Status.NORMAL, var question: Question = Questi
                 question = question.nextQuestion()
                 "Отлично - ты справился\n${question.question}" to status.color
             } else {
+                counter = counter + 1
                 status = status.nextStatus()
                 "Это не правильный ответ\n${question.question}" to status.color
+
+                if (counter >= 4) {
+                    question = Question.NAME
+                    counter = 0
+                    "Это неправильный ответ. Давай все по новой\n${question.question}" to status.color
+                } else {
+                    "это неправильный ответ! \n${question.question}" to status.color
+                }
             }
         } else {
             question.formatError() to status.color
@@ -47,7 +58,8 @@ class Bender(var status: Status = Status.NORMAL, var question: Question = Questi
             return if (this.ordinal < values().lastIndex) {
                 values()[this.ordinal + 1]
             } else {
-                values().last()
+             //   values().last()
+                values()[0]
             }
         }
     }
