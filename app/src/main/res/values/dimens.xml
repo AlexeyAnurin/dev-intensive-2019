@@ -10,5 +10,7 @@
     <dimen name="spacing_normal_16">16dp</dimen>
     <dimen name="spacing_small_8">8dp</dimen>
     <dimen name="spacing_tiny_4">4dp</dimen>
+    <dimen name="btn_round_size_40">40dp</dimen>
+    <dimen name="avatar_round_size">112dp</dimen>
 
 </resources>
