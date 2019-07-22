@@ -22,6 +22,8 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/spacing_normal_16"
             >
 
             <ImageButton
@@ -59,7 +61,7 @@
                 android:fontFamily="sans-serif-medium"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/font_large_24"
-                tools:text="John Doe" />
+                android:text="John Doe" />
 
             <TextView
                 android:id="@+id/tv_rank"
@@ -67,7 +69,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_name"
                 android:layout_centerHorizontal="true"
-                tools:text="Junior Android Developer"
+                android:text="Junior Android Developer"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/font_normal_16"
 
@@ -76,6 +78,31 @@
         </RelativeLayout>
 
     </FrameLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/color_gray_light">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+
+            >
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+
+            >
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 
 </LinearLayout>
