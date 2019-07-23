@@ -70,8 +70,7 @@
                 android:layout_centerHorizontal="true"
                 android:text="Junior Android Developer"
                 android:textColor="@android:color/white"
-                android:textSize="@dimen/font_normal_16"
-                />
+                android:textSize="@dimen/font_normal_16" />
         </RelativeLayout>
 
     </FrameLayout>
@@ -79,32 +78,32 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/color_gray_light"
+        android:background="@color/color_primary_light"
         android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical"
             android:gravity="center"
+            android:orientation="vertical"
             android:paddingTop="@dimen/spacing_normal_16"
             android:paddingBottom="@dimen/spacing_normal_16">
-            
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/font_large_20"
+                android:fontFamily="sans-serif-medium"
                 android:text="0"
-                android:fontFamily="sans-serif-medium" />
-            
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/font_large_20" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Рейтинг"
                 android:textColor="@android:color/white"
-                android:textSize="@dimen/font_normal_16"
-                android:text="Рейтинг"/>
+                android:textSize="@dimen/font_normal_16" />
 
         </LinearLayout>
 
@@ -112,25 +111,25 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical"
             android:gravity="center"
+            android:orientation="vertical"
             android:paddingTop="@dimen/spacing_normal_16"
             android:paddingBottom="@dimen/spacing_normal_16">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/font_large_20"
+                android:fontFamily="sans-serif-medium"
                 android:text="0"
-                android:fontFamily="sans-serif-medium"/>
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/font_large_20" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Уважение"
                 android:textColor="@android:color/white"
-                android:textSize="@dimen/font_normal_16"
-                android:text="Уважение"/>
+                android:textSize="@dimen/font_normal_16" />
         </LinearLayout>
 
     </LinearLayout>
