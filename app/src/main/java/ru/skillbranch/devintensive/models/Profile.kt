@@ -2,7 +2,7 @@ package ru.skillbranch.devintensive.models
 
 // класс чтобы данные из PreferencesRepository доставлять в UI интерфейс
 data class Profile (
-        val rank: String = "Junior Android Developer",
+
         val firstName: String,
         val lastName: String,
         val about: String,
@@ -12,6 +12,7 @@ data class Profile (
 ) {
 
     val nickName: String = "John Doe" // TODO time 2.02
+    val rank: String = "Junior Android Developer"
     //НЕ ПОНЯТНО
     fun toMap(): Map<String, Any> = mapOf(
                    "nickName" to nickName,

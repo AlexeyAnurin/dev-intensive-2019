@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
 
 
@@ -7,6 +7,7 @@
     </style>
 
     <style name="Profile.EditText" parent="Profile">
+        <item name="android:importantForAutofill" tools:targetApi="o">noExcludeDescendants</item>
         <item name="android:textColor">?attr/colorPrimary</item>
         <item name="android:paddingTop">4dp</item>
         <item name="android:enabled">false</item>
