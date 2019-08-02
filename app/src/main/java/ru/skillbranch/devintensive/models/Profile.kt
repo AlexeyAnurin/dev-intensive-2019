@@ -1,5 +1,7 @@
 package ru.skillbranch.devintensive.models
 
+import ru.skillbranch.devintensive.utils.Utils
+
 // класс чтобы данные из PreferencesRepository доставлять в UI интерфейс
 data class Profile (
 
@@ -11,8 +13,10 @@ data class Profile (
         val respect: Int = 0
 ) {
 
-    val nickName: String = "John Doe" // TODO time 2.02
+ //   val nickName: String = "John Doe"
+    val nickName: String = Utils.transliteration("${firstName.trim()} ${lastName.trim()}".trim(), "_")
     val rank: String = "Junior Android Developer"
+
     //НЕ ПОНЯТНО
     fun toMap(): Map<String, Any> = mapOf(
                    "nickName" to nickName,
