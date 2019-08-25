@@ -5,6 +5,9 @@ import android.graphics.ColorFilter
 import android.graphics.PorterDuff
 import android.graphics.PorterDuffColorFilter
 import android.os.Bundle
+import android.text.Editable
+import android.text.InputFilter
+import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import android.widget.EditText
@@ -20,6 +23,7 @@ import ru.skillbranch.devintensive.viewmodels.ProfileViewModel
 
 class ProfileActivity : AppCompatActivity() {
 
+
     //свойства класса (или поле?)
     companion object {
         const val IS_EDIT_MODE = "IS_EDIT_MODE"
@@ -29,6 +33,17 @@ class ProfileActivity : AppCompatActivity() {
     var isEditMode = false
     lateinit var viewFields: Map<String, TextView>
 
+    //////////////////////////////
+    // ? Что за \b ?
+    private val validRegEx = "(https://|www.|https://www.)+github.com/(?!enterprise|features|topics|collections|trending|events|marketplace|pricing|nonprofit|customerstories|security|login|join)".toRegex()
+  //  private val validRegEx = "www".toRegex()
+
+    private val UnvalidRegEx = "enterprise|features|topics|collections|trending|events|marketplace|pricing|nonprofit|customerstories|security|login|join".toRegex()
+var containsMatchIn = false
+var matches = false
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //Указываем на activity, которое хотим использвать по умолчанию
@@ -37,6 +52,7 @@ class ProfileActivity : AppCompatActivity() {
         InitViews(savedInstanceState)
         //Здесь перебираются Views, которые проинициализировали предыдущим методом
         initViewModel()
+
         Log.d("M_ProfileActivity", "onCreate")
 
     }
@@ -60,7 +76,7 @@ class ProfileActivity : AppCompatActivity() {
 
     private fun updateTheme(mode: Int) {
         Log.d("M_ProfileActivity", "updateTheme")
-delegate.setLocalNightMode(mode)
+        delegate.setLocalNightMode(mode)
     }
 
     //Реализация соответствует единственному методу интрефейса Observer
@@ -109,7 +125,7 @@ delegate.setLocalNightMode(mode)
         // !!! it - название для лямбды с единственным аргументом
         btn_edit.setOnClickListener(View.OnClickListener {
             //инверсия значения
-             if (isEditMode) saveProfileInfo()
+            if (isEditMode) saveProfileInfo()
             isEditMode = !isEditMode
             showCurrentMode(isEditMode)
         })
@@ -117,7 +133,33 @@ delegate.setLocalNightMode(mode)
         btn_switch_theme.setOnClickListener(View.OnClickListener {
             viewModel.switchTheme()
         })
+
+        // Отслеживание ввода в поле et_repository
+        et_repository.addTextChangedListener(object: TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+
+                containsMatchIn = validRegEx.containsMatchIn(et_repository.text.toString())
+                matches = validRegEx.matches(et_repository.text.toString())
+
+
+
+
+                println("containsMatchIn  $containsMatchIn")
+                println("matches  $matches")
+
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            }
+        })
+
+        //----private fun InitViews(savedInstanceState: Bundle?)
     }
+
+
 
     fun showCurrentMode(isEdit: Boolean) {
         //проверить, содержит ли набор из setOf() элемент, принимаемый на вход (НЕ ПОНЯТНО)
@@ -155,7 +197,9 @@ delegate.setLocalNightMode(mode)
         }
     }
 
-    // apply - чтобы обратиться к только что созданному инстансу профайла
+    // apply - чтобы обратиться к только что созданному инстансу Profile
+    // apply - чтобы не повторять имя экземпляра
+    //синим цветом - поля data class Profile. В них записываются значения, введённые в поля ввода EditText (et_)
     private fun saveProfileInfo() {
         Profile(
                 firstName = et_first_name.text.toString(),
@@ -166,5 +210,9 @@ delegate.setLocalNightMode(mode)
             viewModel.saveProfileData(this)
         }
     }
+
+    private fun validateRepoUrl(repoUrl: String) =
+            repoUrl.isEmpty() || validRegEx.matches(repoUrl.replace("-", ""))
+
 }
 

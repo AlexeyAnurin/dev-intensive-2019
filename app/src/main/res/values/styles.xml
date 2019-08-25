@@ -59,4 +59,10 @@
         <item name="android:minHeight">72dp</item>
     </style>
 
+    <!-- Splash screen через тему. <style name="AppTheme.Launcher"> - изначально было так -->
+    <style name="AppTheme.Launcher">
+        <item name="android:windowBackground">@drawable/ic_splash</item>
+        <!-- <item name="colorPrimaryDark">@android:color/white</item> -->
+    </style>
+
 </resources>

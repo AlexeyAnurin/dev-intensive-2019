@@ -20,7 +20,10 @@ object PreferencesRepository {
     private const val RESPECT = "RESPECT"
     private const val APP_THEME = "APP_THEME"
 
-    //? by что такое
+    // переменная prefs типа SharedPreferences
+    // ленивые свойства (lazy properties): значение вычисляется один раз, при первом обращении.
+     /*Первый вызов get() запускает лямбда-выражение, переданное lazy() в качестве аргумента, и
+     запоминает полученное значение, а последующие вызовы просто возвращают вычисленное значение.*/
     private val prefs: SharedPreferences by lazy {
         val ctx = App.applicationContext()
         PreferenceManager.getDefaultSharedPreferences(ctx)
@@ -32,6 +35,7 @@ putValue(APP_THEME to theme)
 
     fun getAppTheme():Int = prefs.getInt(APP_THEME, AppCompatDelegate.MODE_NIGHT_NO)
 
+    // ключи объявлены выше. Значения из data class Profile
     fun saveProfile(profile: Profile) {
         with(profile) {
             putValue(FIRST_NAME to firstName)
