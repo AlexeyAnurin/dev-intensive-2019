@@ -18,6 +18,6 @@ class App: Application() {
     override fun onCreate() {
 setTheme(R.style.Theme_AppCompat)
         super.onCreate()
-
+//ff
     }
 }
